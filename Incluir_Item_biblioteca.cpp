@@ -27,6 +27,7 @@ struct ItensBiblioteca {
       }
 
     }while(inclusao.codigo<0);
+  }
   
 
   void Cadastro_Itens_Biblioteca(ItensBiblioteca &inclusao) {
