@@ -67,7 +67,7 @@ struct ItensBiblioteca {
     do{
       gets(inclusao.editora);
       if(strlen(inclusao.editora)>15 || strlen(inclusao.editora)<=0) puts("\nNome de editora invalido. Entre com um nome de editora valido:\n");
-    } while (strlen(inclusao.editora)>15);
+    } while (strlen(inclusao.editora)>15 || strlen(inclusao.editora)<=0);
 
     //ANO DE PUBLICACAO
     puts("Ano que foi publicado\n");
