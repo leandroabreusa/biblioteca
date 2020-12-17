@@ -20,13 +20,13 @@ struct ItensBiblioteca {
     printf("\nCodigo\n");
     do{
       scanf("%d", &inclusao.codigo);
-      getchar();
       if(inclusao.codigo<0){
         gets(trash);
          puts("Codigo invalido. Insira um codigo valido:");
       }
 
     }while(inclusao.codigo<0);
+   getchar();
   }
   
 
