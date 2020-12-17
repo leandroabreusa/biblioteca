@@ -35,7 +35,7 @@ struct ItensBiblioteca {
     //TITULO
     puts("\nTitulo do item\n");
     gets(inclusao.titulo);
-    while (strlen(inclusao.titulo)>30) {
+    while (strlen(inclusao.titulo)>30 || strlen(inclusao.titulo)<=0) {
       puts("Titulo invalido. Entre com um titulo de ate 30 caracteres");
       gets(inclusao.titulo);
     }
@@ -58,7 +58,7 @@ struct ItensBiblioteca {
 
     }
     //TESTE DE AUTOR
-    while (strlen(inclusao.autor)>30) {
+    while (strlen(inclusao.autor)>30 || strlen(inclusao.autor)<=0) {
       puts("Nome invalido. Entre com um nome de ate 30 caracteres");
       gets(inclusao.autor);
     }
@@ -66,7 +66,7 @@ struct ItensBiblioteca {
     puts("\nEditora\n");
     do{
       gets(inclusao.editora);
-      if(strlen(inclusao.editora)>15) puts("\nNome de editora invalido. Entre com um nome de editora valido:\n");
+      if(strlen(inclusao.editora)>15 || strlen(inclusao.editora)<=0) puts("\nNome de editora invalido. Entre com um nome de editora valido:\n");
     } while (strlen(inclusao.editora)>15);
 
     //ANO DE PUBLICACAO
