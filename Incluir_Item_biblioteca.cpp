@@ -27,7 +27,7 @@ struct ItensBiblioteca {
       }
 
     }while(inclusao.codigo<0);
-  }
+  
 
   void Cadastro_Itens_Biblioteca(ItensBiblioteca &inclusao) {
 
@@ -129,5 +129,5 @@ struct ItensBiblioteca {
     puts("Autor:");
     puts(item[qtd_Itens].autor);
     qtd_Itens+=1;
-
+     return 0;
   }
