@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <string.h>
+#include "upper.cpp"
+
 const size_t NOMES= 30;
 const size_t MAX_USU_IT = 50;
 
@@ -77,27 +79,14 @@ struct ItensBiblioteca {
     }while(inclusao.anopubl>=10000 || inclusao.anopubl<1000);
 
 
+  conversaoCaixaAlta(inclusao.titulo);
+  conversaoCaixaAlta(inclusao.editora);
+  conversaoCaixaAlta(inclusao.autor);
     // CONVERSAO PARA CAIXA ALTA
-    strupr(inclusao.titulo);
+    /*strupr(inclusao.titulo);
     strupr(inclusao.editora);
     strupr(inclusao.autor);
-    /*for (size_t i = 0; i<strlen(inclusao.titulo); i++) {
-      if(inclusao.titulo[i] >= 'a' && inclusao.titulo[i] <= 'z') {
-         inclusao.titulo[i] = inclusao.titulo[i] - 32;
-      }
-    }*/
-   /*for (size_t i = 0; i<strlen(inclusao.editora); i++) {
-     if(inclusao.editora[i] >= 'a' && inclusao.editora[i] <= 'z') {
-        inclusao.editora[i] = inclusao.editora[i] - 32;
-     }
-   }
-    for (size_t i = 0; i<strlen(inclusao.autor); i++) {
-      if(inclusao.autor[i] >= 'a' && inclusao.autor[i] <= 'z') {
-         inclusao.autor[i] = inclusao.autor[i] - 32;
-      }
-    }*/
-
-
+    */
   }
 
 
