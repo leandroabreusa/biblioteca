@@ -38,16 +38,24 @@ bool testa_cpf (Usuario usuario[], int qtd_usuarios)
 
 void inclusao_usuarios (Usuario usuario[], int &qtd_usuarios)
 {
+    int CPF;
     if (qtd_usuarios < MAX_USUARIOS)
     {
         printf("CPF: ");
-        scanf("%lld", &usuario[qtd_usuarios].cpf);
+        scanf("%lld", &CPF);
 
         // Limpa o ENTER
         getchar();
 
         if (testa_cpf(usuario, qtd_usuarios))
         {
+            if (existeCPF(usuario, CPF)){
+                puts("Erro no cadastro. CPF ja cadastrado!");
+                return;
+            }
+
+            usuario[qtd_usuarios].cpf = CPF;
+
             printf("Nome: ");
             gets(usuario[qtd_usuarios].nome);
 
@@ -94,6 +102,16 @@ void listagem_usuarios_CPF(Usuario usuario[]){
     }
 }
 
+bool existeCPF(Usuario usuarios[], long long cpf){
+    int length = sizeof(usuarios)/sizeof(usuarios[0]);
+
+    for (int x = 0; x < length; x++){
+        if (usuarios[x].cpf == cpf){
+            return true;
+        }
+    }
+    return false;
+}
 
 /* Na main precisamos declarar o vetor de struct e o contador que diz quantos usu�rios s�o armazenados nesse programa
 int main()
