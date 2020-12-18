@@ -32,6 +32,7 @@ struct ItensBiblioteca {
   }
   
   void Cadastro_Itens_Biblioteca(ItensBiblioteca &inclusao) {
+    Cadastro_Codigo_Itens_Biblioteca(inclusao);
 
     //TITULO
     puts("\nTitulo do item\n");
@@ -89,7 +90,7 @@ struct ItensBiblioteca {
     */
   }
 
-
+/*
   int main() {
     ItensBiblioteca item[MAX_USU_IT];
     int key, qtd_Itens=0;
@@ -125,3 +126,4 @@ struct ItensBiblioteca {
     qtd_Itens+=1;
      return 0;
   }
+*/
