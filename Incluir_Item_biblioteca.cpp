@@ -16,6 +16,10 @@ struct ItensBiblioteca {
 };
 
 
+bool verificaCodigo(ItensBiblioteca item[], int codigo){
+  /* code */
+}
+
   void Cadastro_Codigo_Itens_Biblioteca(ItensBiblioteca &inclusao){
     char trash[1000];
     puts("        CADASTRO DE ITENS\n");

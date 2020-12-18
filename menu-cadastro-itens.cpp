@@ -31,6 +31,42 @@ void menuCadastroItens(ItensBiblioteca item){
 }
 }
 
+void menuEmprestimoDevolucao(Usuario usuarios[], ItensBiblioteca item[]){
+    printf("Menu do Emprestimo/Devolucao\n");
+
+    printf("1-Emprestar item\n");
+    printf("2-Devolver item\n");
+    printf("3-Listar emprestimos\n");
+    printf("4-Voltar\n");
+
+    char INPUT;
+    scanf(" %c", &INPUT);
+
+    switch (INPUT) {
+    case '1':
+        int codigo;
+        printf("Código do item: ");
+        scanf("%d", &codigo);
+        verificaCodigo(item, codigo);
+
+        long long CPF;
+        printf("CPF: ");
+        scanf("%ll", &CPF);
+        existeCPF(usuarios, CPF);
+
+        /* chama função */
+        break;
+    case '2':
+        /* chama função */
+        break;
+    case '3':
+        /* chama função */
+        break;
+    case '4':
+        return;
+}
+}
+
 /*
 int main(){
     ItensBiblioteca item[MAX_USU_IT];
