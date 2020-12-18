@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include "upper.cpp"
 
 const int TAM_NOME = 100;
 const int MAX_NOME = 30;
@@ -19,19 +20,19 @@ bool testa_tamanho_string (int n, int k,
         strlen(usuario[qtd_usuarios].nome) > k)
             return false;
 
-    // Se não, retorna verdadeiro
+    // Se nï¿½o, retorna verdadeiro
     return true;
 }
 
-// Testa se o cpf tem 11 dígitos
+// Testa se o cpf tem 11 dï¿½gitos
 bool testa_cpf (Usuario usuario[], int qtd_usuarios)
 {
-    // Se não tiver, retorna falso
+    // Se nï¿½o tiver, retorna falso
     if (usuario[qtd_usuarios].cpf < 10000000000 ||
         usuario[qtd_usuarios].cpf > 99999999999)
             return false;
 
-    // Se não, retorna verdadeiro
+    // Se nï¿½o, retorna verdadeiro
     return true;
 }
 
@@ -50,7 +51,8 @@ void inclusao_usuarios (Usuario usuario[], int &qtd_usuarios)
             printf("Nome: ");
             gets(usuario[qtd_usuarios].nome);
 
-            strupr(usuario[qtd_usuarios].nome);
+            conversaoCaixaAlta(usuario[qtd_usuarios].nome);
+            //strupr(usuario[qtd_usuarios].nome);
 
             if (testa_tamanho_string(MIN_NOME, MAX_NOME,
                                      usuario, qtd_usuarios))
@@ -68,7 +70,7 @@ void inclusao_usuarios (Usuario usuario[], int &qtd_usuarios)
         puts("Erro no cadastro. Ja foi atingido o limite de 50 usuarios!");
 }
 
-/* Na main precisamos declarar o vetor de struct e o contador que diz quantos usuários são armazenados nesse programa
+/* Na main precisamos declarar o vetor de struct e o contador que diz quantos usuï¿½rios sï¿½o armazenados nesse programa
 int main()
 {
     Usuario usuario[MAX_USUARIOS];
