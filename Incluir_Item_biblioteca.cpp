@@ -123,12 +123,17 @@ struct ItensBiblioteca {
 
     putchar('\n');
     printf("CODIGO: %d\n\n", item[qtd_Itens].codigo);
-    puts("Titulo:\n");
+    puts("TITULO:");
     puts(item[qtd_Itens].titulo);
-    puts("Editora:");
+    putchar('\n');
+    puts("EDITORA:");
     puts(item[qtd_Itens].editora);
-    puts("Autor:");
+    putchar('\n');
+    puts("AUTOR:");
     puts(item[qtd_Itens].autor);
+    putchar('\n');
+    puts("ANO");
+    printf("%d\n",item[qtd_Itens].anopubl );
     qtd_Itens+=1;
      return 0;
   }
