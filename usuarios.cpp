@@ -1,40 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "upper.cpp"
-
-const int TAM_NOME = 100;
-const int MAX_NOME = 30;
-const int MIN_NOME = 4;
-const int MAX_USUARIOS = 50;
-
-struct Usuario {
-    long long cpf;
-    char nome[TAM_NOME];
-};
-
-bool testa_tamanho_string (int n, int k,
-                           Usuario usuario[], int qtd_usuarios)
-{
-    // Se o tamanho estiver fora dos limites permitidos, retorna falso
-    if (strlen(usuario[qtd_usuarios].nome) < n ||
-        strlen(usuario[qtd_usuarios].nome) > k)
-            return false;
-
-    // Se n�o, retorna verdadeiro
-    return true;
-}
-
-// Testa se o cpf tem 11 d�gitos
-bool testa_cpf (Usuario usuario[], int qtd_usuarios)
-{
-    // Se n�o tiver, retorna falso
-    if (usuario[qtd_usuarios].cpf < 10000000000 ||
-        usuario[qtd_usuarios].cpf > 99999999999)
-            return false;
-
-    // Se n�o, retorna verdadeiro
-    return true;
-}
+#include "tools.cpp"
 
 void inclusao_usuarios (Usuario usuario[], int &qtd_usuarios)
 {
@@ -102,16 +68,6 @@ void listagem_usuarios_CPF(Usuario usuario[]){
     }
 }
 
-bool existeCPF(Usuario usuarios[], long long cpf){
-    int length = sizeof(usuarios)/sizeof(usuarios[0]);
-
-    for (int x = 0; x < length; x++){
-        if (usuarios[x].cpf == cpf){
-            return true;
-        }
-    }
-    return false;
-}
 
 /* Na main precisamos declarar o vetor de struct e o contador que diz quantos usu�rios s�o armazenados nesse programa
 int main()

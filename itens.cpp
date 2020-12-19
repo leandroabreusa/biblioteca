@@ -1,24 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "upper.cpp"
-
-const size_t NOMES= 30;
-const size_t MAX_USU_IT = 50;
-
-
-struct ItensBiblioteca {
- int codigo;
- char titulo[NOMES];
- char tipo;
- char autor[NOMES];
- char editora[15];
- int anopubl;
-};
-
-
-bool verificaCodigo(ItensBiblioteca item[], int codigo){
-  /* code */
-}
+#include "tools.cpp"
 
   void Cadastro_Codigo_Itens_Biblioteca(ItensBiblioteca &inclusao){
     char trash[1000];
