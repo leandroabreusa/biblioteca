@@ -1,6 +1,8 @@
 #include <stdio.h>
-#include "entrada_usuarios.cpp"
-#include "Incluir_Item_biblioteca.cpp"
+#include "itens.cpp"
+#include "usuarios.cpp"
+#include "tools.cpp"
+#include "structs.cpp"
 
 void MenuPrincipal()
 {
