@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
-const int TAM_NOME = 100;
-const int MAX_NOME = 30;
-const int MIN_NOME = 4;
+#include "tool.cpp"
+#include "struct.cpp"
+
 const int MAX_USUARIOS_ITENS = 50;
 
 
@@ -15,14 +15,6 @@ struct ItensBiblioteca {
  char editora[15];
  int anopubl;
 };
-  void conversaoCaixaAlta(char vetor[]){
-      //CONVERTE PARA CAIXA ALTA
-      for (size_t i = 0; i < strlen(vetor); i++) {
-          if(vetor[i] >= 'a' && vetor[i] <= 'z') {
-              vetor[i] = toupper(vetor[i]);
-          }
-      }
-  }
 
   void Cadastro_Codigo_Itens_Biblioteca(ItensBiblioteca inclusao[], int posicao_item, bool &key){
     char trash[1000];
@@ -30,12 +22,11 @@ struct ItensBiblioteca {
     printf("\nCodigo\n");
     do{
       scanf("%d", &inclusao[posicao_item].codigo);
+      gets(trash);
       if(inclusao[posicao_item].codigo<0 || inclusao[posicao_item].codigo>=1000000){
-        gets(trash);
          puts("Codigo invalido. Insira um codigo valido de ate 6 digitos:");
       }
     }while(inclusao[posicao_item].codigo<0 || inclusao[posicao_item].codigo>=1000000);
-    getchar();
 
     if(posicao_item==0) key=false;
     else key=true;
