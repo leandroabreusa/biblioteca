@@ -122,7 +122,7 @@
 
   }
 
-int Incluir_Itens(ItensBiblioteca item[], int &qtd_Itens) {
+int Cadastrar_Itens(ItensBiblioteca item[], int &qtd_Itens) {
     bool key;
     item[qtd_Itens].codigo=-1;
     if(qtd_Itens==MAX_USUARIOS_ITENS-1){
