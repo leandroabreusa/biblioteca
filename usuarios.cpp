@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <string.h>
 #include "tools.cpp"
+#include "structs.cpp"
 
 void inclusao_usuarios (Usuario usuario[], int &qtd_usuarios)
 {
     int CPF;
-    if (qtd_usuarios < MAX_USUARIOS)
+    if (qtd_usuarios < MAX_USUARIOS_ITENS)
     {
         printf("CPF: ");
         scanf("%lld", &CPF);
@@ -72,7 +73,7 @@ void listagem_usuarios_CPF(Usuario usuario[]){
 /* Na main precisamos declarar o vetor de struct e o contador que diz quantos usu�rios s�o armazenados nesse programa
 int main()
 {
-    Usuario usuario[MAX_USUARIOS];
+    Usuario usuario[MAX_USUARIOS_ITENS];
     int qtd_usuarios = 0;
 }
 
