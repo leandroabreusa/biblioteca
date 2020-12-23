@@ -141,7 +141,7 @@ struct ItensBiblioteca {
     puts("Cadastro realizado com sucesso!");
 
   }
-  int main() {
+ /* int main() {
     // isso aqui seria passado por referência do int main() para a funcao do menu de itens
     ItensBiblioteca item[MAX_USUARIOS_ITENS];
     int qtd_Itens=0;
@@ -162,4 +162,4 @@ struct ItensBiblioteca {
       qtd_Itens+=1;
     }
     return 0;
-  }
+  }*/
