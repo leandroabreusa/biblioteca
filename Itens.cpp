@@ -130,11 +130,12 @@
     bool key;
     item[qtd_Itens].codigo=-1;
     
-    if(qtd_Itens>=49){
+    if(qtd_Itens==MAX_USUARIOS_ITENS-1){
       puts("Erro no cadastro. Ja foi atingido o limite de 50 usuarios!");
-      break;
+      //break;
+      return 0;
     }
-
+    
     Cadastro_Codigo_Itens_Biblioteca(item, qtd_Itens, key);
 
     if (key==true){
