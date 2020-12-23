@@ -144,30 +144,8 @@ int Cadastrar_Itens(ItensBiblioteca item[], int &qtd_Itens) {
     return 0;
   }
  /* int main() {
-    
     ItensBiblioteca item[MAX_USUARIOS_ITENS];
     int qtd_Itens=0;
-
-    
-    bool key;
-    item[qtd_Itens].codigo=-1;
-    
-    if(qtd_Itens==MAX_USUARIOS_ITENS-1){
-      puts("Erro no cadastro. Ja foi atingido o limite de 50 usuarios!");
-      
-      return 0;
-    }
-    
-    Cadastro_Codigo_Itens_Biblioteca(item, qtd_Itens, key);
-
-    if (key==true){
-      printf("Codigo: %d\nErro no cadastro. Item ja cadastrado\n", item[qtd_Itens].codigo);
-      break;
-    }
-    else{
-      Cadastro_Itens_Biblioteca(item[qtd_Itens]);
-      retorno_visual(item[qtd_Itens]);
-      qtd_Itens+=1;
-    }
+    Incluir_Itens(item, qtd_Itens);
     return 0;
   }*/
