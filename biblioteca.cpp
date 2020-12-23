@@ -1,5 +1,9 @@
 #include <stdio.h>
+
+//não é possível abrir o arquivo fonte "itens.cpp"
+//C/C++ é case sensitive, cuidado com o nome dos pacotes
 #include "itens.cpp"
+
 #include "usuarios.cpp"
 #include "tools.cpp"
 #include "structs.cpp"
@@ -55,9 +59,11 @@ void CadastroDeUsuario()
         /*codigo*/
         break;
     case 3:
+        //identificador não definido
         Ordernar_por_CPF(usuario, qtd_usuarios);
         break;
     case 4:
+        //identificador não definido
         Ordernar_por_Nome(usuario, qtd_usuarios);
         break;
     case 5:
@@ -67,7 +73,7 @@ void CadastroDeUsuario()
 
 }
 
-void menuCadastroItens(ItensBiblioteca item){
+void menuCadastroItens(ItensBiblioteca item[]){
     printf("Menu do Cadastro de Itens da Biblioteca\n");
 
     printf("1-Cadastrar novo item\n");
@@ -80,7 +86,8 @@ void menuCadastroItens(ItensBiblioteca item){
     scanf(" %c", &INPUT);
     switch (INPUT) {
     case '1':
-        Cadastrar_Itens(item, &qtd_Itens);
+        //parametro 'qtd_Itens' não definido, C/C++ não é magia
+        Cadastrar_Itens(item, qtd_Itens);
         break;
     case '2':
         /* code */

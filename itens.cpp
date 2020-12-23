@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
-#include "tool.cpp"
+#include "tools.cpp"
 #include "structs.cpp"
 
 
@@ -122,6 +122,7 @@
 
   }
 
+//Retorno de inteiro desnecessário
 int Cadastrar_Itens(ItensBiblioteca item[], int &qtd_Itens) {
     bool key;
     item[qtd_Itens].codigo=-1;
