@@ -79,7 +79,7 @@ void menuCadastroItens(ItensBiblioteca item){
     scanf(" %c", &INPUT);
     switch (INPUT) {
     case '1':
-        Cadastro_Itens_Biblioteca(item);
+        Cadastrar_Itens(item, qtd_Itens);
         break;
     case '2':
         /* code */
