@@ -146,6 +146,6 @@ int Cadastrar_Itens(ItensBiblioteca item[], int &qtd_Itens) {
  /* int main() {
     ItensBiblioteca item[MAX_USUARIOS_ITENS];
     int qtd_Itens=0;
-    Incluir_Itens(item, qtd_Itens);
+    Cadastrar_Itens(item, qtd_Itens);
     return 0;
   }*/
