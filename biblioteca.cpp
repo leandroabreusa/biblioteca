@@ -3,6 +3,7 @@
 #include "usuarios.cpp"
 #include "tools.cpp"
 #include "structs.cpp"
+#include "Codigos_de_Ordenacao.cpp"
 
 void MenuPrincipal()
 {
@@ -54,10 +55,10 @@ void CadastroDeUsuario()
         /*codigo*/
         break;
     case 3:
-        /*codigo*/
+        Ordernar_por_CPF(usuario, qtd_usuarios);
         break;
     case 4:
-        /*codigo*/
+        Ordernar_por_Nome(usuario, qtd_usuarios);
         break;
     case 5:
         return;
@@ -85,10 +86,10 @@ void menuCadastroItens(ItensBiblioteca item){
         /* code */
         break;
     case '3':
-        /* code */
+        Ordernar_por_Codigo(item, qtd_Itens);
         break;
     case '4':
-        /* code */
+        Ordernar_por_Titulo(item, qtd_Itens);
         break;
     case '5':
         return;
