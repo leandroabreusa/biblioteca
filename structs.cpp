@@ -13,9 +13,9 @@ struct Usuario {
 
 struct ItensBiblioteca {
  int codigo;
- char titulo[NOMES];
+ char titulo[TAM_NOME];
  char tipo;
- char autor[NOMES];
+ char autor[TAM_NOME];
  char editora[15];
  int anopubl;
 };
