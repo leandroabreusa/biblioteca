@@ -2,7 +2,7 @@
 #include <ctype.h>
 #include <string.h>
 #include "tool.cpp"
-#include "struct.cpp"
+#include "structs.cpp"
 
 const int MAX_USUARIOS_ITENS = 50;
 
