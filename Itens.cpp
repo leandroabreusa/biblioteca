@@ -121,18 +121,40 @@
     puts("Cadastro realizado com sucesso!");
 
   }
+
+int Incluir_Itens(ItensBiblioteca item[], int &qtd_Itens) {
+    bool key;
+    item[qtd_Itens].codigo=-1;
+    if(qtd_Itens==MAX_USUARIOS_ITENS-1){
+      puts("Erro no cadastro. Ja foi atingido o limite de 50 usuarios!");
+      return 0;
+    }
+
+    Cadastro_Codigo_Itens_Biblioteca(item, qtd_Itens, key);
+
+    if (key==true){
+      printf("Codigo: %d\nErro no cadastro. Item ja cadastrado\n", item[qtd_Itens].codigo);
+      return 0;
+    }
+    else{
+      Cadastro_Itens_Biblioteca(item[qtd_Itens]);
+      retorno_visual(item[qtd_Itens]);
+      qtd_Itens+=1;
+    }
+    return 0;
+  }
  /* int main() {
-    // isso aqui seria passado por referência do int main() para a funcao do menu de itens
+    
     ItensBiblioteca item[MAX_USUARIOS_ITENS];
     int qtd_Itens=0;
 
-    // isso teria de ficar sempre no case 1 no caso.
+    
     bool key;
     item[qtd_Itens].codigo=-1;
     
     if(qtd_Itens==MAX_USUARIOS_ITENS-1){
       puts("Erro no cadastro. Ja foi atingido o limite de 50 usuarios!");
-      //break;
+      
       return 0;
     }
     
