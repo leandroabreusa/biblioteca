@@ -4,17 +4,6 @@
 #include "tool.cpp"
 #include "structs.cpp"
 
-const int MAX_USUARIOS_ITENS = 50;
-
-
-struct ItensBiblioteca {
- int codigo;
- char titulo[TAM_NOME];
- char tipo;
- char autor[TAM_NOME];
- char editora[15];
- int anopubl;
-};
 
   void Cadastro_Codigo_Itens_Biblioteca(ItensBiblioteca inclusao[], int posicao_item, bool &key){
     char trash[1000];
@@ -140,12 +129,17 @@ struct ItensBiblioteca {
     // isso teria de ficar sempre no case 1 no caso.
     bool key;
     item[qtd_Itens].codigo=-1;
+    
+    if(qtd_Itens>=49){
+      puts("Erro no cadastro. Ja foi atingido o limite de 50 usuarios!");
+      break;
+    }
 
     Cadastro_Codigo_Itens_Biblioteca(item, qtd_Itens, key);
 
     if (key==true){
       printf("Codigo: %d\nErro no cadastro. Item ja cadastrado\n", item[qtd_Itens].codigo);
-      return 0; // no codigo final ficaria a chamada da função de menu principal, no caso.
+      break;
     }
     else{
       Cadastro_Itens_Biblioteca(item[qtd_Itens]);
