@@ -29,6 +29,32 @@ void data_hora_atual(int &dia, int &mes, int &ano,
     seg = lt.tm_sec;
 }
 
+bool eh_bissexto(int ano)
+{
+    if (ano % 4 == 0 && ano % 100 != 0 || ano % 400 == 0)
+        return true;
+    else
+        return false;
+}
+
+int numero_dias_mes(int mes, int ano)
+{
+    if (mes < 1 || mes > 12 || ano <= 0)
+        return -1;
+
+    if (mes == 2)
+    {
+        if (eh_bissexto(ano))
+            return 29;
+        else
+            return 28;
+    }
+    else if (mes < 7 && mes % 2 == 0 || mes > 8 && mes % 2 != 0)
+        return 30;
+    else
+        return 31;
+}
+
 int busca_codigo(ItensBiblioteca inclusao[], int qtd_Itens, int codigo)
 {
     for (int i = 0; i < qtd_Itens; i++)
@@ -86,10 +112,33 @@ void emprestimo_item(Usuario usuario[], int qtd_usuarios,
                             emprestimo[qtd_emprestimos].dia_emprestimo = dia;
                             emprestimo[qtd_emprestimos].mes_emprestimo = mes;
                             emprestimo[qtd_emprestimos].ano_emprestimo = ano;
-                            emprestimo[qtd_emprestimos].dia_devolucao = dia + 7;
-                            emprestimo[qtd_emprestimos].mes_devolucao = mes;
-                            emprestimo[qtd_emprestimos].ano_devolucao = ano;
                             qtd_emprestimos++;
+
+                            int dias_mes = numero_dias_mes(mes, ano);
+                            if (dia + 7 <= dias_mes && mes != 12)
+                            {
+                                emprestimo[qtd_emprestimos].dia_devolucao = dia + 7;
+                                emprestimo[qtd_emprestimos].mes_devolucao = mes;
+                                emprestimo[qtd_emprestimos].ano_devolucao = ano;
+                            }
+                            else if (dia + 7 > dias_mes && mes != 12)
+                            {
+                                emprestimo[qtd_emprestimos].mes_devolucao = mes + 1;
+                                emprestimo[qtd_emprestimos].ano_devolucao = ano;
+                                emprestimo[qtd_emprestimos].dia_devolucao = dia + 7 - dias_mes;
+                            }
+                            else if (dia + 7 > dias_mes && mes == 12)
+                            {
+                                emprestimo[qtd_emprestimos].mes_devolucao = 1;
+                                emprestimo[qtd_emprestimos].ano_devolucao = ano + 1;
+                                emprestimo[qtd_emprestimos].dia_devolucao = dia + 7 - dias_mes;
+                            }
+                            else
+                            {
+                                emprestimo[qtd_emprestimos].dia_devolucao = dia + 7;
+                                emprestimo[qtd_emprestimos].mes_devolucao = mes;
+                                emprestimo[qtd_emprestimos].ano_devolucao = ano;
+                            }
 
                             puts("\nEmprestimo concedido!");
                             printf("Nome: %s\n", emprestimo[qtd_emprestimos].nome);
@@ -126,8 +175,8 @@ void emprestimo_item(Usuario usuario[], int qtd_usuarios,
         puts("Erro no emprestimo. Ja foi atingido o limite de 50 emprestimos!");
 }
 
-/* Vari·veis da data/hora
-Vari·veis para o emprÈstimo
+/* Vari√°veis da data/hora
+Vari√°veis para o empr√©stimo
 int main()
 {
     Emprestimo emprestimo[MAX_USUARIOS_ITENS];
