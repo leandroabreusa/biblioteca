@@ -7,7 +7,8 @@
 //CPF
 void Ordernar_por_CPF(Usuario ordena[], int qtd_usuarios){
   bool troca=true;
-
+  qtd_usuarios--;
+  
   while(qtd_usuarios >0 && troca){
     int i;
     Usuario aux;
@@ -28,6 +29,7 @@ void Ordernar_por_CPF(Usuario ordena[], int qtd_usuarios){
 //NOME
 void Ordernar_por_Nome(Usuario ordena[], int qtd_usuarios){
   bool troca=true;
+  qtd_usuarios--;
 
   while(qtd_usuarios >0 && troca){
     int i;
@@ -51,6 +53,7 @@ void Ordernar_por_Nome(Usuario ordena[], int qtd_usuarios){
 //CODIGO
 void Ordernar_por_Codigo(ItensBiblioteca ordena[], int qtd_Itens){
   bool troca=true;
+  qtd_Itens--;
 
   while(qtd_Itens >0 && troca){
     int i;
@@ -72,6 +75,7 @@ void Ordernar_por_Codigo(ItensBiblioteca ordena[], int qtd_Itens){
 //TITULO
 void Ordernar_por_Titulo(ItensBiblioteca ordena[], int qtd_Itens){
   bool troca=true;
+  qtd_Itens--;
   while(qtd_Itens >0 && troca){
     int i;
     ItensBiblioteca aux;
