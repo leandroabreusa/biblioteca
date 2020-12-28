@@ -1,9 +1,16 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
-#include "tools.cpp"
 #include "structs.cpp"
 
+void conversaoCaixaAlta(char vetor[]){
+    //CONVERTE PARA CAIXA ALTA
+    for (size_t i = 0; i < strlen(vetor); i++) {
+        if(vetor[i] >= 'a' && vetor[i] <= 'z') {
+            vetor[i] = toupper(vetor[i]);
+        }
+    }
+}  
 
   void Cadastro_Codigo_Itens_Biblioteca(ItensBiblioteca inclusao[], int posicao_item, bool &key){
     char trash[1000];
@@ -122,27 +129,27 @@
 
   }
 
-//Retorno de inteiro desnecessário
-int Cadastrar_Itens(ItensBiblioteca item[], int &qtd_Itens) {
+
+void Cadastrar_Itens(ItensBiblioteca item[], int &qtd_Itens) {
     bool key;
     item[qtd_Itens].codigo=-1;
     if(qtd_Itens==MAX_USUARIOS_ITENS-1){
       puts("Erro no cadastro. Ja foi atingido o limite de 50 usuarios!");
-      return 0;
+      return;
     }
 
     Cadastro_Codigo_Itens_Biblioteca(item, qtd_Itens, key);
 
     if (key==true){
       printf("Codigo: %d\nErro no cadastro. Item ja cadastrado\n", item[qtd_Itens].codigo);
-      return 0;
+      return;
     }
     else{
       Cadastro_Itens_Biblioteca(item[qtd_Itens]);
       retorno_visual(item[qtd_Itens]);
       qtd_Itens+=1;
     }
-    return 0;
+    return;
   }
  /* int main() {
     ItensBiblioteca item[MAX_USUARIOS_ITENS];
