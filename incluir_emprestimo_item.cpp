@@ -94,7 +94,7 @@ int busca_cpf_emprestimo(Emprestimo emprestimo[], int qtd_emprestimos, long long
 void emprestimo_item(Usuario usuario[], int qtd_usuarios,
                      ItensBiblioteca inclusao[], int qtd_Itens,
                      Emprestimo emprestimo, int &qtd_emprestimos
-                     int dia, int mes, int ano, int hora, int min, int seg);
+                     int dia, int mes, int ano, int hora, int min, int seg)
 {
     if (qtd_emprestimos < MAX_USUARIOS_ITENS)
     {
