@@ -93,7 +93,7 @@ int busca_cpf_emprestimo(Emprestimo emprestimo[], int qtd_emprestimos, long long
 
 void emprestimo_item(Usuario usuario[], int qtd_usuarios,
                      ItensBiblioteca inclusao[], int qtd_Itens,
-                     Emprestimo emprestimo, int &qtd_emprestimos
+                     Emprestimo emprestimo[], int &qtd_emprestimos
                      int dia, int mes, int ano, int hora, int min, int seg)
 {
     if (qtd_emprestimos < MAX_USUARIOS_ITENS)
@@ -181,8 +181,8 @@ void emprestimo_item(Usuario usuario[], int qtd_usuarios,
                 {
                     puts("\nErro no emprestimo. Item ja emprestado!\n");
 
-                    printf("CPF: %lld\n", emprestimo[posicao_emprestimo_item].cpf);
-                    printf("Nome: %s\n", emprestimo[posicao_emprestimo_item].nome);
+                    printf("CPF: %lld\n", emprestimo[posicao_emprestimo_codigo].cpf);
+                    printf("Nome: %s\n", emprestimo[posicao_emprestimo_codigo].nome);
 
                 }
         }
