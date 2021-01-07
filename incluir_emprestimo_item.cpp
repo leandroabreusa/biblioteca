@@ -101,7 +101,7 @@ void emprestimo_item(Usuario usuario[], int qtd_usuarios,
         int codigo;
         long long cpf;
 
-        printf("Codigo: \n");
+        printf("Codigo: ");
         scanf("%d", &codigo);
 
         int posicao_codigo = busca_codigo(inclusao, qtd_Itens, codigo);
