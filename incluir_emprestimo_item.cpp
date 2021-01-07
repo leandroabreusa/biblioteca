@@ -64,10 +64,28 @@ int busca_codigo(ItensBiblioteca inclusao[], int qtd_Itens, int codigo)
     return -1;
 }
 
+int busca_codigo_emprestimo(Emprestimo emprestimo[], int qtd_emprestimos, int codigo)
+{
+    for (int i = 0; i < qtd_emprestimos; i++)
+        if (emprestimo[i].codigo == codigo)
+            return i;
+
+    return -1;
+}
+
 int busca_cpf(Usuario usuario[], int qtd_usuarios, long long cpf)
 {
     for (int i = 0; i < qtd_usuarios; i++)
         if (usuario[i].cpf == cpf)
+            return i;
+
+    return -1;
+}
+
+int busca_cpf_emprestimo(Emprestimo emprestimo[], int qtd_emprestimos, long long cpf)
+{
+    for (int i = 0; i < qtd_emprestimos; i++)
+        if (emprestimo[i].cpf == cpf)
             return i;
 
     return -1;
@@ -86,8 +104,8 @@ void emprestimo_item(Usuario usuario[], int qtd_usuarios,
         printf("Codigo: %d\n");
         scanf("%d", &codigo);
 
-        int posicao_codigo = busca_itens(inclusao, qtd_Itens, codigo);
-        int posicao_emprestimo_codigo = busca_itens(emprestimo, qtd_emprestimos, codigo);
+        int posicao_codigo = busca_codigo(inclusao, qtd_Itens, codigo);
+        int posicao_emprestimo_codigo = busca_codigo_emprestimo(emprestimo, qtd_emprestimos, codigo);
 
         if (posicao_codigo != -1)
         {
@@ -97,7 +115,7 @@ void emprestimo_item(Usuario usuario[], int qtd_usuarios,
                     scanf("%lld", &cpf);
 
                     int posicao_cpf = busca_cpf(usuario, qtd_usuarios, cpf);
-                    int posicao_emprestimo_cpf = busca_cpf(emprestimo, qtd_emprestimos, cpf);
+                    int posicao_emprestimo_cpf = busca_cpf_emprestimo(emprestimo, qtd_emprestimos, cpf);
 
                     if (posicao_cpf != -1)
                     {
