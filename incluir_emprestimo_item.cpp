@@ -67,7 +67,7 @@ int busca_codigo(ItensBiblioteca inclusao[], int qtd_Itens, int codigo)
 int busca_cpf(Usuario usuario[], int qtd_usuarios, long long cpf)
 {
     for (int i = 0; i < qtd_usuarios; i++)
-        if (inclusao[i].cpf == cpf)
+        if (usuario[i].cpf == cpf)
             return i;
 
     return -1;
