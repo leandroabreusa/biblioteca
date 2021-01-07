@@ -93,9 +93,10 @@ int busca_cpf_emprestimo(Emprestimo emprestimo[], int qtd_emprestimos, long long
 
 void emprestimo_item(Usuario usuario[], int qtd_usuarios,
                      ItensBiblioteca inclusao[], int qtd_Itens,
-                     Emprestimo emprestimo[], int &qtd_emprestimos
-                     int dia, int mes, int ano, int hora, int min, int seg)
+                     Emprestimo emprestimo[], int &qtd_emprestimos)
 {
+    int dia, mes, ano, hora, min, seg;
+    
     if (qtd_emprestimos < MAX_USUARIOS_ITENS)
     {
         int codigo;
@@ -161,9 +162,9 @@ void emprestimo_item(Usuario usuario[], int qtd_usuarios,
                             puts("\nEmprestimo concedido!");
                             printf("Nome: %s\n", emprestimo[qtd_emprestimos].nome);
                             printf("Titulo: %s\n", emprestimo[qtd_emprestimos].titulo);
-                            printf("Data do emprestimo: %d/%d/%d\n",
+                            printf("Data do emprestimo: %02d/%02d/%d\n",
                                    emprestimo[qtd_emprestimos].dia_emprestimo, emprestimo[qtd_emprestimos].mes_emprestimo, emprestimo[qtd_emprestimos].ano_emprestimo);
-                            printf("Data da devolucao: %d/%d/%d\n",
+                            printf("Data da devolucao: %02d/%02d/%d\n",
                                    emprestimo[qtd_emprestimos].dia_devolucao, emprestimo[qtd_emprestimos].mes_devolucao, emprestimo[qtd_emprestimos].ano_devolucao);
                             qtd_emprestimos++;
                         }
