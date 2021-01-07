@@ -132,7 +132,7 @@ void emprestimo_item(Usuario usuario[], int qtd_usuarios,
                             emprestimo[qtd_emprestimos].dia_emprestimo = dia;
                             emprestimo[qtd_emprestimos].mes_emprestimo = mes;
                             emprestimo[qtd_emprestimos].ano_emprestimo = ano;
-                            qtd_emprestimos++;
+                            
 
                             int dias_mes = numero_dias_mes(mes, ano);
                             if (dia + 7 <= dias_mes && mes != 12)
@@ -167,6 +167,7 @@ void emprestimo_item(Usuario usuario[], int qtd_usuarios,
                                    emprestimo[qtd_emprestimos].dia_emprestimo, emprestimo[qtd_emprestimos].mes_emprestimo, emprestimo[qtd_emprestimos].ano_emprestimo);
                             printf("Data da devolucao: %d/%d/%d\n",
                                    emprestimo[qtd_emprestimos].dia_devolucao, emprestimo[qtd_emprestimos].mes_devolucao, emprestimo[qtd_emprestimos].ano_devolucao);
+                            qtd_emprestimos++;
                         }
                         else
                         {
