@@ -1,9 +1,3 @@
-/*bool confere_emprestimo (Emprestimo  emprestimo[], int qtd_emprestimos, long long int cpf){
-  for (int i = 0; i < qtd_emprestimos; i++){
-    if (emprestimo[i].cpf == cpf) return true;
-  }
-  return false;
-}Essa funcao e utilizada tanto nesse codigo quanto no devolucao.cpp e tambem esta declarada no outro arquivo, mas nao comentada*/
 
 Emprestimo printa_emprestimo (Emprestimo  emprestimo[], int qtd_emprestimos, long long int cpf){
   for (int i = 0; i < qtd_emprestimos; i++){
