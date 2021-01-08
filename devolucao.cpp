@@ -73,7 +73,7 @@ void devolucao(Usuario usuario[], Emprestimo emprestimo[], int qtd_usuarios,  in
 
   //Conferindo se o usuario e cadastrado e se tem emprestimo, retornando mensagens de erro se necessario como o layout define
   puts("Digite seu CPF:");
-  scanf("%d", &cpf);  //"%lld"
+  scanf("%lld", &cpf);
   getchar();
 
   if(confere_cpf(usuario, qtd_usuarios, cpf)){
@@ -107,7 +107,7 @@ void devolucao(Usuario usuario[], Emprestimo emprestimo[], int qtd_usuarios,  in
 
 
 
-  printf("\n\nCPF: %d\n", devolvido.cpf);
+  printf("\n\nCPF: %lld\n", devolvido.cpf);
   printf("Data da devolucao: %02d/%02d/%02d\n\n",dia_devolucao, mes_devolucao, ano_devolucao );
   printf("Nome: %s\n",devolvido.nome);
   printf("Titulo: %s\n\n",devolvido.titulo);
