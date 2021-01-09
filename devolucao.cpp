@@ -70,6 +70,11 @@ void devolucao(Usuario usuario[], Emprestimo emprestimo[], int qtd_usuarios,  in
   long long int cpf;
   int dia_devolucao, mes_devolucao, ano_devolucao;
   bool data_errada;
+  
+    if(qtd_emprestimos==0){
+    puts("Biblioteca nao tem emprestimos!");
+    return;
+  }
 
   //Conferindo se o usuario e cadastrado e se tem emprestimo, retornando mensagens de erro se necessario como o layout define
   puts("Digite seu CPF:");
