@@ -7,6 +7,10 @@ Emprestimo printa_emprestimo (Emprestimo  emprestimo[], int qtd_emprestimos, lon
 }
 
 void imprime_usuario(Usuario usuario[], int qtd_usuarios, Emprestimo emprestimo[], int qtd_emprestimos){
+  if(qtd_usuarios==0){
+    puts("Biblioteca nao tem usuarios!");
+    return;
+  }
   char printa[150];
   char vazio[2];
   vazio[0]=' ';
@@ -52,6 +56,10 @@ void imprime_usuario(Usuario usuario[], int qtd_usuarios, Emprestimo emprestimo[
 
 
 void imprime_itens(ItensBiblioteca item[], int qtd_Itens){
+  if(qtd_Itens==0){
+    puts("Biblioteca nao tem itens!");
+    return;
+  }
   char printa[150];
   for(size_t i=0; i<=91;i++){
     if(i==91)printa[i]='\0';
@@ -97,6 +105,10 @@ void imprime_itens(ItensBiblioteca item[], int qtd_Itens){
 
 
 void imprime_emprestimos(Emprestimo emprestimo[], int qtd_emprestimos){
+  if(qtd_emprestimos==0){
+    puts("Biblioteca nao tem emprestimos!");
+    return;
+  }
   char printa[150];
   for(size_t i=0; i<=102;i++){
     if(i==102)printa[i]='\0';
