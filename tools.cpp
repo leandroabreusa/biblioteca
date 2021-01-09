@@ -3,9 +3,22 @@
 #include <ctype.h>
 
 #include "structs.cpp"
+#include "incluir_emprestimo_item.cpp"
 
-bool verificaCodigo(ItensBiblioteca item[], int codigo){
-  /* code */
+bool verificaCodigo(ItensBiblioteca item[], int codigo, int posicao_item){
+    for (int x = 0; x < posicao_item; x++){
+        if (item[x].codigo == codigo){
+            return true;
+        }
+    }
+    return false;
+}
+
+bool existe_emprestimo (Emprestimo emprestimo[], int qtd_emprestimos, int codigo){
+  for (int i = 0; i < qtd_emprestimos; i++){
+    if (emprestimo[i].codigo == codigo) { return true; }
+  }
+  return false;
 }
 
 void conversaoCaixaAlta(char vetor[]){
