@@ -51,14 +51,9 @@ bool data_da_devolucao(int &dia_devolucao,int &mes_devolucao,int &ano_devolucao,
   if(mes_devolucao>12) return true;
 
 
-  time_t t = time(NULL);
-  struct tm lt = *localtime(&t);
-  int ano = lt.tm_year + 1900;
-  int mes = lt.tm_mon + 1;
-  int dia = lt.tm_mday;
-  if(ano_devolucao < ano) return true;
-  if(ano_devolucao == ano && mes_devolucao < mes) return true;
-  if(ano_devolucao == ano && mes_devolucao == mes && dia_devolucao < dia) return true;
+  if(ano_devolucao < teste.ano_emprestimo) return true;
+  if(ano_devolucao == teste.ano_emprestimo && mes_devolucao < teste.mes_emprestimo) return true;
+  if(ano_devolucao == teste.ano_emprestimo && mes_devolucao == teste.mes_emprestimo && dia_devolucao < teste.dia_emprestimo) return true;
 
   return false;
 }
