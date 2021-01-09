@@ -2,6 +2,8 @@
 #include <ctype.h>
 #include <string.h>
 #include "structs.cpp"
+#include "tools.cpp"
+#include "incluir_emprestimo_item.cpp"
 
 void conversaoCaixaAlta(char vetor[]){
     //CONVERTE PARA CAIXA ALTA
@@ -128,6 +130,53 @@ void conversaoCaixaAlta(char vetor[]){
     puts("Cadastro realizado com sucesso!");
 
   }
+
+
+void Excluir_Item(Emprestimo emprestimo[], int qtd_emprestimos,ItensBiblioteca item[], int &posicao_item){
+  int codigo = 0, tentativas = 1;
+  for (int x = 1; x <= tentativas; x++){
+      puts("Insira um codigo de ate 6 digitos: ");
+      scanf("%d", &codigo);
+      getchar();
+
+      if(codigo > 0 && codigo < 1000000){ break; }
+      printf("Codigo invalido! *(voce tem mais %d tentativas)*\n\n", (tentativas-x));
+  }
+
+  if (!verificaCodigo(item, codigo, posicao_item)){
+    printf("Erro na exclusao. Item nao cadastrado!\n");
+    return;
+  }
+  else {
+    if (existe_emprestimo(emprestimo, qtd_emprestimos, codigo)){
+      printf("Erro na exclusao. Item esta emprestado!\n");
+      return;
+    }
+    else {
+      //EXCLUIR
+      ItensBiblioteca temp;
+      temp.codigo = 0;
+      strcpy(temp.titulo, "");
+
+      for (int x = 0; x <= posicao_item; x++){
+        if (item[x].codigo == codigo){
+          //Se posição não for a ultima, rearranjar itens
+          for (; x < posicao_item; x++){
+            item[x] = item[x+1];
+            //Zera posição
+            item[x+1] = temp;
+          }
+
+          break;
+        }
+      }
+
+      printf("Exclusao realizada com sucesso!\n");
+      posicao_item-=1;
+      return;
+    }
+  }
+}
 
 
 void Cadastrar_Itens(ItensBiblioteca item[], int &qtd_Itens) {
