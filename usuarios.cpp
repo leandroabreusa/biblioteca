@@ -44,7 +44,7 @@ void inclusao_usuarios (Usuario usuario[], int &qtd_usuarios)
     else
         puts("Erro no cadastro. Ja foi atingido o limite de 50 usuarios!");
 }
-
+/*
 void listagem_usuarios_CPF(Usuario usuario[]){
     Usuario temporario;
 
@@ -68,7 +68,7 @@ void listagem_usuarios_CPF(Usuario usuario[]){
         }
     }
 }
-
+*/
 
 /* Na main precisamos declarar o vetor de struct e o contador que diz quantos usu�rios s�o armazenados nesse programa
 int main()
