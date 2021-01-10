@@ -13,7 +13,7 @@ void exclui_usuario(Usuario usuario[], int &qtd_usuarios,
         if (testa_cpf(cpf))
         {
             int posicao_cpf = busca_cpf(usuario, qtd_usuarios, cpf);
-            int posiÁ„o_emprestimo_cpf = busca_cpf_emprestimo(emprestimo, qtd_emprestimos, cpf);
+            int posi√ß√£o_emprestimo_cpf = busca_cpf_emprestimo(emprestimo, qtd_emprestimos, cpf);
 
             if (posicao_cpf != -1)
             {
@@ -23,24 +23,24 @@ void exclui_usuario(Usuario usuario[], int &qtd_usuarios,
 
                     usuario[posicao_cpf] = usuario[qtd_usuarios];
 
-                    puts("Exclusao realizada com sucesso!");
+                    puts("\nExclusao realizada com sucesso!");
                 }
                 else
-                    puts("Erro na exclusao. Usuario possui um emprestimo!");
+                    puts("\nErro na exclusao. Usuario possui um emprestimo!");
             }
             else
-                puts("Erro na exclusao. Usuario nao cadastrado!");
+                puts("\nErro na exclusao. Usuario nao cadastrado!");
 
         }
         else
-            puts("Erro na exclusao. Tamanho do CPF invalido!");
+            puts("\nErro na exclusao. Tamanho do CPF invalido!");
     }
     else
-        puts("Erro na exclusao. Nao existem usuarios cadastrados!");
+        puts("\nErro na exclusao. Nao existem usuarios cadastrados!");
 }
 }
-/* N„o precisa adicionar nada na main, tudo que eu usei j· existe nos outros
-cÛdigos
+/* N√£o precisa adicionar nada na main, tudo que eu usei j√° existe nos outros
+c√≥digos
 int main()
 {
 }
