@@ -55,11 +55,10 @@ bool testa_tamanho_string (int n, int k,
 }
 
 // Testa se o cpf tem 11 d�gitos
-bool testa_cpf (Usuario usuario[], int qtd_usuarios)
+bool testa_cpf (long long cpf)
 {
     // Se n�o tiver, retorna falso
-    if (usuario[qtd_usuarios].cpf < 10000000000 ||
-        usuario[qtd_usuarios].cpf > 99999999999)
+    if (cpf < 10000000000 || cpf > 99999999999)
             return false;
 
     // Se n�o, retorna verdadeiro
