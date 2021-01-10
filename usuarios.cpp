@@ -5,7 +5,7 @@
 
 void inclusao_usuarios (Usuario usuario[], int &qtd_usuarios)
 {
-    int CPF;
+    long long CPF;
     if (qtd_usuarios < MAX_USUARIOS_ITENS)
     {
         printf("CPF: ");
@@ -14,7 +14,7 @@ void inclusao_usuarios (Usuario usuario[], int &qtd_usuarios)
         // Limpa o ENTER
         getchar();
 
-        if (testa_cpf(usuario, qtd_usuarios))
+        if (testa_cpf(CPF))
         {
             if (existeCPF(usuario, CPF)){
                 puts("Erro no cadastro. CPF ja cadastrado!");
