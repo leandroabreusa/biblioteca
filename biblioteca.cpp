@@ -330,7 +330,7 @@ void Cadastro_Codigo_Itens_Biblioteca(ItensBiblioteca inclusao[], int posicao_it
       scanf("%d", &inclusao[posicao_item].codigo);
       gets(trash);
       if(inclusao[posicao_item].codigo<0 || inclusao[posicao_item].codigo>=1000000){
-         puts("Codigo invalido. Insira um codigo valido de ate 6 digitos:");
+         puts("Codigo invalido. Insira um codigo valido de ate 6 digitos.");
          printf("Codigo: ");
       }
     }while(inclusao[posicao_item].codigo<0 || inclusao[posicao_item].codigo>=1000000);
@@ -356,7 +356,7 @@ void Cadastro_Codigo_Itens_Biblioteca(ItensBiblioteca inclusao[], int posicao_it
       scanf(" %c", &inclusao.tipo);
       if (inclusao.tipo!='R' && inclusao.tipo!='r' && inclusao.tipo!='L' && inclusao.tipo!='l'){
        gets(trash);
-        puts("Essa nao e uma entrada valida. Por favor entre com o tipo correto do item (R- revista / L- livro)");
+        puts("Essa nao e uma entrada valida. Por favor entre com o tipo correto do item (R- revista / L- livro).");
         printf("Tipo: ");
       }
     }while(inclusao.tipo!='R' && inclusao.tipo!='r' && inclusao.tipo!='L' && inclusao.tipo!='l');
@@ -365,7 +365,7 @@ void Cadastro_Codigo_Itens_Biblioteca(ItensBiblioteca inclusao[], int posicao_it
     printf("Titulo: ");
     gets(inclusao.titulo);
     while (strlen(inclusao.titulo)>MAX_NOME || strlen(inclusao.titulo)<MIN_NOME) {
-      puts("Titulo invalido. Entre com um titulo de 4 ate 30 caracteres");
+      puts("Titulo invalido. Entre com um titulo de 4 ate 30 caracteres.");
       printf("Titulo: ");
       gets(inclusao.titulo);
     }
@@ -378,7 +378,7 @@ void Cadastro_Codigo_Itens_Biblioteca(ItensBiblioteca inclusao[], int posicao_it
 
     }
     while (strlen(inclusao.autor)>MAX_NOME || strlen(inclusao.autor)<MIN_NOME) {
-      puts("Nome invalido. Entre com um nome de 4 ate 30 caracteres");
+      puts("Nome invalido. Entre com um nome de 4 ate 30 caracteres.");
       printf("Autor: ");
       gets(inclusao.autor);
     }
@@ -387,7 +387,7 @@ void Cadastro_Codigo_Itens_Biblioteca(ItensBiblioteca inclusao[], int posicao_it
     do{
       gets(inclusao.editora);
       if(strlen(inclusao.editora)>15 || strlen(inclusao.editora)<MIN_NOME){
-          puts("\nNome de editora invalido. Entre com um nome de 4 ate 15 caracteres:\n");
+          puts("Nome de editora invalido. Entre com um nome de 4 ate 15 caracteres.");
           printf("Editora: ");
       }
     } while (strlen(inclusao.editora)>15 || strlen(inclusao.editora)<MIN_NOME);
@@ -397,7 +397,7 @@ void Cadastro_Codigo_Itens_Biblioteca(ItensBiblioteca inclusao[], int posicao_it
       scanf("%d", &inclusao.anopubl);
       if(inclusao.anopubl>=10000 || inclusao.anopubl<1000){
        gets(trash);
-       puts("Ano invalido. Entre com um ano valido:");
+       puts("Ano invalido. Entre com um ano valido.");
        printf("Ano: ");
       }
     }while(inclusao.anopubl>=10000 || inclusao.anopubl<1000);
