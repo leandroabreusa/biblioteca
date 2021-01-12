@@ -379,7 +379,7 @@ void Cadastro_Codigo_Itens_Biblioteca(ItensBiblioteca inclusao[], int posicao_it
     }
     while (strlen(inclusao.autor)>MAX_NOME || strlen(inclusao.autor)<MIN_NOME) {
       puts("Nome invalido. Entre com um nome de 4 ate 30 caracteres");
-      printf("Autor: ")
+      printf("Autor: ");
       gets(inclusao.autor);
     }
 
