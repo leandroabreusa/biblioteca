@@ -212,8 +212,7 @@ void conversaoCaixaAlta(char vetor[]){
     }
 }
 
-bool existeCPF(Usuario usuarios[], long long cpf){
-    int length = sizeof(usuarios)/sizeof(usuarios[0]);
+bool existeCPF(Usuario usuarios[], long long cpf, int length){
 
     for (int x = 0; x < length; x++){
         if (usuarios[x].cpf == cpf){
@@ -251,9 +250,8 @@ void inclusao_usuarios (Usuario usuario[], int &qtd_usuarios)
 
         getchar();
 
-        if (testa_cpf(CPF))
-        {
-            if (existeCPF(usuario, CPF)){
+        if (testa_cpf(CPF)){
+            if (existeCPF(usuario, CPF, qtd_usuarios)){
                 puts("Erro no cadastro. CPF ja cadastrado!");
                 return;
             }
@@ -706,12 +704,10 @@ void devolucao(Usuario usuario[], Emprestimo emprestimo[], int qtd_usuarios,  in
   } else prazo=false;
 
 
-
-
   printf("\n\nCPF: %lld\n", devolvido.cpf);
   printf("Data da devolucao: %02d/%02d/%02d\n\n",dia_devolucao, mes_devolucao, ano_devolucao );
   printf("Nome: %s\n",devolvido.nome);
-  printf("Titulo: %s\n\n",devolvido.titulo);
+  printf("Titulo: %s\n",devolvido.titulo);
 
   if(prazo){
     printf("Devolucao realizada com sucesso no prazo!\n");
