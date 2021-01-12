@@ -212,7 +212,9 @@ void conversaoCaixaAlta(char vetor[]){
     }
 }
 
-bool existeCPF(Usuario usuarios[], long long cpf, int length){
+bool existeCPF(Usuario usuarios[], long long cpf){
+    int length = sizeof(usuarios)/sizeof(usuarios[0]);
+
     for (int x = 0; x < length; x++){
         if (usuarios[x].cpf == cpf){
             return true;
@@ -251,7 +253,7 @@ void inclusao_usuarios (Usuario usuario[], int &qtd_usuarios)
 
         if (testa_cpf(CPF))
         {
-            if (existeCPF(usuario, CPF, qtd_usuarios)){
+            if (existeCPF(usuario, CPF)){
                 puts("Erro no cadastro. CPF ja cadastrado!");
                 return;
             }
@@ -324,7 +326,7 @@ void exclui_usuario(Usuario usuario[], int &qtd_usuarios,
 void Cadastro_Codigo_Itens_Biblioteca(ItensBiblioteca inclusao[], int posicao_item, bool &key){
     char trash[1000];
     puts("        CADASTRO DE ITENS\n");
-    printf("\nCodigo\n");
+    printf("\nCodigo: ");
     do{
       scanf("%d", &inclusao[posicao_item].codigo);
       gets(trash);
@@ -349,7 +351,7 @@ void Cadastro_Codigo_Itens_Biblioteca(ItensBiblioteca inclusao[], int posicao_it
 
   void Cadastro_Itens_Biblioteca(ItensBiblioteca &inclusao) {
    char trash[1000];
-    puts("\nTipo de item (R- revista / L- livro)\n");
+    printf("Tipo: ");
     do{
       scanf(" %c", &inclusao.tipo);
       if (inclusao.tipo!='R' && inclusao.tipo!='r' && inclusao.tipo!='L' && inclusao.tipo!='l'){
@@ -359,7 +361,7 @@ void Cadastro_Codigo_Itens_Biblioteca(ItensBiblioteca inclusao[], int posicao_it
     }while(inclusao.tipo!='R' && inclusao.tipo!='r' && inclusao.tipo!='L' && inclusao.tipo!='l');
     getchar();
 
-    puts("\nTitulo do item\n");
+    printf("Titulo: ");
     gets(inclusao.titulo);
     while (strlen(inclusao.titulo)>MAX_NOME || strlen(inclusao.titulo)<MIN_NOME) {
       puts("Titulo invalido. Entre com um titulo de 4 ate 30 caracteres");
@@ -369,8 +371,8 @@ void Cadastro_Codigo_Itens_Biblioteca(ItensBiblioteca inclusao[], int posicao_it
     switch (inclusao.tipo) {
       case 'R': strcpy(inclusao.autor, "NAO APLICAVEL");break;
       case 'r': strcpy(inclusao.autor, "NAO APLICAVEL"); inclusao.tipo='R';break;
-      case 'L':puts("\nNome do autor\n");gets(inclusao.autor); break; //AUTOR
-      case 'l':puts("\nNome do autor\n");gets(inclusao.autor);inclusao.tipo='L'; break; //AUTOR
+        case 'L':printf("Autor: ");gets(inclusao.autor); break; //AUTOR
+      case 'l':printf("Autor: ");gets(inclusao.autor);inclusao.tipo='L'; break; //AUTOR
 
     }
     while (strlen(inclusao.autor)>MAX_NOME || strlen(inclusao.autor)<MIN_NOME) {
@@ -378,13 +380,13 @@ void Cadastro_Codigo_Itens_Biblioteca(ItensBiblioteca inclusao[], int posicao_it
       gets(inclusao.autor);
     }
 
-    puts("\nEditora\n");
+    printf("Editora: ");
     do{
       gets(inclusao.editora);
       if(strlen(inclusao.editora)>15 || strlen(inclusao.editora)<MIN_NOME) puts("\nNome de editora invalido. Entre com um nome de 4 ate 15 caracteres:\n");
     } while (strlen(inclusao.editora)>15 || strlen(inclusao.editora)<MIN_NOME);
 
-    puts("\nAno que foi publicado\n");
+    printf("Ano: ");
     do{
       scanf("%d", &inclusao.anopubl);
       if(inclusao.anopubl>=10000 || inclusao.anopubl<1000){
@@ -398,31 +400,8 @@ void Cadastro_Codigo_Itens_Biblioteca(ItensBiblioteca inclusao[], int posicao_it
     conversaoCaixaAlta(inclusao.editora);
     conversaoCaixaAlta(inclusao.autor);
 
-
+    puts("\nCadastro realizado com sucesso!");
   }
-
-  void retorno_visual(ItensBiblioteca item){
-    putchar('\n');
-    printf("Codigo: %d\n",item.codigo);
-
-    printf("Tipo: %c\n", item.tipo);
-
-    printf("Titulo: ");
-    puts(item.titulo);
-
-    if(item.tipo=='L'){
-      printf("Autor: ");
-      puts(item.autor);
-    }
-
-    printf("Editora: ");
-    puts(item.editora);
-
-    printf("Ano: %d\n\n",item.anopubl);
-
-    puts("Cadastro realizado com sucesso!");
-
-}
 
 void Cadastrar_Itens(ItensBiblioteca item[], int &qtd_Itens) {
     bool key;
@@ -440,7 +419,6 @@ void Cadastrar_Itens(ItensBiblioteca item[], int &qtd_Itens) {
     }
     else{
       Cadastro_Itens_Biblioteca(item[qtd_Itens]);
-      retorno_visual(item[qtd_Itens]);
       qtd_Itens+=1;
     }
     return;
@@ -688,7 +666,7 @@ void devolucao(Usuario usuario[], Emprestimo emprestimo[], int qtd_usuarios,  in
   }
 
   //Conferindo se o usuario e cadastrado e se tem emprestimo, retornando mensagens de erro se necessario como o layout define
-  puts("Digite seu CPF:");
+  printf("CPF: ");
   scanf("%lld", &cpf);
   getchar();
 
