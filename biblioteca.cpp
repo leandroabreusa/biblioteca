@@ -212,9 +212,7 @@ void conversaoCaixaAlta(char vetor[]){
     }
 }
 
-bool existeCPF(Usuario usuarios[], long long cpf){
-    int length = sizeof(usuarios)/sizeof(usuarios[0]);
-
+bool existeCPF(Usuario usuarios[], long long cpf, int length){
     for (int x = 0; x < length; x++){
         if (usuarios[x].cpf == cpf){
             return true;
@@ -253,7 +251,7 @@ void inclusao_usuarios (Usuario usuario[], int &qtd_usuarios)
 
         if (testa_cpf(CPF))
         {
-            if (existeCPF(usuario, CPF)){
+            if (existeCPF(usuario, CPF, qtd_usuarios)){
                 puts("Erro no cadastro. CPF ja cadastrado!");
                 return;
             }
