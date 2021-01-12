@@ -929,101 +929,127 @@ void imprime_emprestimos(Emprestimo emprestimo[], int qtd_emprestimos){
 void CadastroDeUsuario(Usuario usuario[], int &qtd_usuarios,
                        Emprestimo emprestimo[], int qtd_emprestimos)
 {
-    printf("Menu do Cadastro de Usuarios\n");
-    printf("1-Cadastrar novo usuario");
-    printf("2-Excluir usuario\n");
-    printf("3-Listar usuarios (ordenado por CPF)\n");
-    printf("4-Listar usuarios (ordenado por nome)\n");
-    printf("5-Voltar");
+    bool finaliza = false;
 
-    int opcao;
-
-    scanf("%d", &opcao);
-
-    switch(opcao)
+    while (! finaliza)
     {
-    case 1:
-        inclusao_usuarios(usuario, qtd_usuarios);
-        break;
-    case 2:
-        exclui_usuario(usuario, qtd_usuarios, emprestimo, qtd_emprestimos);
-        break;
-    case 3:
-        Ordernar_por_CPF(usuario, qtd_usuarios);
-        imprime_usuario(usuario, qtd_usuarios, emprestimo, qtd_emprestimos);
-        break;
-    case 4:
-        Ordernar_por_Nome(usuario, qtd_usuarios);
-        imprime_usuario(usuario, qtd_usuarios, emprestimo, qtd_emprestimos);
-        break;
-    case 5:
-        return;
+        printf("Menu do Cadastro de Usuarios\n");
+        printf("1-Cadastrar novo usuario\n");
+        printf("2-Excluir usuario\n");
+        printf("3-Listar usuarios (ordenado por CPF)\n");
+        printf("4-Listar usuarios (ordenado por nome)\n");
+        printf("5-Voltar\n");
 
+        int opcao;
+        scanf("%d", &opcao);
+
+        switch(opcao)
+        {
+            case 1:
+                inclusao_usuarios(usuario, qtd_usuarios);
+                putchar('\n');
+                break;
+            case 2:
+                exclui_usuario(usuario, qtd_usuarios, emprestimo, qtd_emprestimos);
+                putchar('\n');
+                break;
+            case 3:
+                Ordernar_por_CPF(usuario, qtd_usuarios);
+                imprime_usuario(usuario, qtd_usuarios, emprestimo, qtd_emprestimos);
+                putchar('\n');
+                break;
+            case 4:
+                Ordernar_por_Nome(usuario, qtd_usuarios);
+                imprime_usuario(usuario, qtd_usuarios, emprestimo, qtd_emprestimos);
+                putchar('\n');
+                break;
+            case 5:
+                finaliza = true;
+        }
     }
+    putchar('\n');
 }
 
 void menuCadastroItens(ItensBiblioteca item[], int &qtd_Itens,
                        Emprestimo emprestimo[], int qtd_emprestimos){
-    printf("Menu do Cadastro de Itens da Biblioteca\n");
 
-    printf("1-Cadastrar novo item\n");
-    printf("2-Excluir item\n");
-    printf("3-Listar itens (ordenado por codigo)\n");
-    printf("4-Listar itens (ordenado por titulo)\n");
-    printf("5-Voltar\n");
+    bool finaliza = false;
 
-    int opcao;
+    while (! finaliza)
+    {
+        printf("Menu do Cadastro de Itens da Biblioteca\n");
 
-    scanf("%d", &opcao);
+        printf("1-Cadastrar novo item\n");
+        printf("2-Excluir item\n");
+        printf("3-Listar itens (ordenado por codigo)\n");
+        printf("4-Listar itens (ordenado por titulo)\n");
+        printf("5-Voltar\n");
 
-    switch (opcao) {
-    case '1':
-        Cadastrar_Itens(item, qtd_Itens);
-        break;
-    case '2':
-        Excluir_Item(emprestimo, qtd_emprestimos, item, qtd_Itens);
-        break;
-    case '3':
-        Ordernar_por_Codigo(item, qtd_Itens);
-        imprime_itens(item, qtd_Itens);
-        break;
-    case '4':
-        Ordernar_por_Titulo(item, qtd_Itens);
-        imprime_itens(item, qtd_Itens);
-        break;
-    case '5':
-        return;
-}
+        int opcao;
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+        case 1:
+            Cadastrar_Itens(item, qtd_Itens);
+            putchar('\n');
+            break;
+        case 2:
+            Excluir_Item(emprestimo, qtd_emprestimos, item, qtd_Itens);
+            putchar('\n');
+            break;
+        case 3:
+            Ordernar_por_Codigo(item, qtd_Itens);
+            imprime_itens(item, qtd_Itens);
+            putchar('\n');
+            break;
+        case 4:
+            Ordernar_por_Titulo(item, qtd_Itens);
+            imprime_itens(item, qtd_Itens);
+            putchar('\n');
+            break;
+        case 5:
+            finaliza = true;
+        }
+    }
+    putchar('\n');
 }
 
 void menuEmprestimoDevolucao(Usuario usuario[], int qtd_usuarios,
                              ItensBiblioteca item[], int qtd_Itens,
                              Emprestimo emprestimo[], int &qtd_emprestimos){
-    printf("Menu do Emprestimo/Devolucao\n");
+    bool finaliza = false;
 
-    printf("1-Emprestar item\n");
-    printf("2-Devolver item\n");
-    printf("3-Listar emprestimos\n");
-    printf("4-Voltar\n");
+    while (! finaliza)
+    {
+        printf("Menu do Emprestimo/Devolucao\n");
 
-    int opcao;
+        printf("1-Emprestar item\n");
+        printf("2-Devolver item\n");
+        printf("3-Listar emprestimos\n");
+        printf("4-Voltar\n");
 
-    scanf("%d", &opcao);
+        int opcao;
+        scanf("%d", &opcao);
 
-    switch (opcao) {
-    case '1':
-        emprestimo_item(usuario, qtd_usuarios, item, qtd_Itens, emprestimo, qtd_emprestimos);
-        break;
-    case '2':
-        devolucao(usuario, emprestimo, qtd_usuarios, qtd_emprestimos);
-        break;
-    case '3':
-        ordena_por_emprestimo(emprestimo, qtd_emprestimos);
-        imprime_emprestimos(emprestimo, qtd_emprestimos);
-        break;
-    case '4':
-        return;
-}
+        switch (opcao) {
+        case 1:
+            emprestimo_item(usuario, qtd_usuarios, item, qtd_Itens, emprestimo, qtd_emprestimos);
+            putchar('\n');
+            break;
+        case 2:
+            devolucao(usuario, emprestimo, qtd_usuarios, qtd_emprestimos);
+            putchar('\n');
+            break;
+        case 3:
+            ordena_por_emprestimo(emprestimo, qtd_emprestimos);
+            imprime_emprestimos(emprestimo, qtd_emprestimos);
+            putchar('\n');
+            break;
+        case 4:
+            finaliza = true;
+        }
+    }
+    putchar('\n');
 }
 
 int main(){
@@ -1033,29 +1059,36 @@ int main(){
 
     int qtd_emprestimos = 0;
     int qtd_usuarios = 0;
-    int qtd_Itens=0;
+    int qtd_Itens = 0;
 
-    printf("Menu Principal\n");
-    printf("1-Cadastro de Usuario\n");
-    printf("2-Cadastro de Itens da biblioteca\n");
-    printf("3-Emprestimo/devolucao\n");
-    printf("4-Fim\n");
+    bool finaliza = false;
 
-    int opcao;
-    scanf("%d", &opcao);
+    while(! finaliza)
+    {
+        printf("Menu Principal\n");
+        printf("1-Cadastro de Usuario\n");
+        printf("2-Cadastro de Itens da biblioteca\n");
+        printf("3-Emprestimo/devolucao\n");
+        printf("4-Fim\n");
 
-    switch (opcao) {
-    case '1':
-        CadastroDeUsuario(usuario, qtd_usuarios, emprestimo, qtd_emprestimos);
-        break;
-    case '2':
-        menuCadastroItens(item, qtd_Itens, emprestimo, qtd_emprestimos);
-        break;
-    case '3':
-        menuEmprestimoDevolucao(usuario, qtd_usuarios, item, qtd_Itens, emprestimo, qtd_emprestimos);
-        break;
-    case '4':
-        puts("Fim");
-        return 0;
-}
+        int opcao;
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+        case 1:
+            putchar('\n');
+            CadastroDeUsuario(usuario, qtd_usuarios, emprestimo, qtd_emprestimos);
+            break;
+        case 2:
+            putchar('\n');
+            menuCadastroItens(item, qtd_Itens, emprestimo, qtd_emprestimos);
+            break;
+        case 3:
+            putchar('\n');
+            menuEmprestimoDevolucao(usuario, qtd_usuarios, item, qtd_Itens, emprestimo, qtd_emprestimos);
+            break;
+        case 4:
+            finaliza = true;
+        }
+    }
 }
