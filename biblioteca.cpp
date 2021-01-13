@@ -431,14 +431,9 @@ void Cadastrar_Itens(ItensBiblioteca item[], int &qtd_Itens) {
 
 void Excluir_Item(Emprestimo emprestimo[], int qtd_emprestimos,ItensBiblioteca item[], int &posicao_item){
   int codigo = 0, tentativas = 1;
-  for (int x = 1; x <= tentativas; x++){
-      puts("Insira um codigo de ate 6 digitos: ");
-      scanf("%d", &codigo);
-      getchar();
-
-      if(codigo > 0 && codigo < 1000000){ break; }
-      printf("Codigo invalido! *(voce tem mais %d tentativas)*\n\n", (tentativas-x));
-  }
+  puts("Codigo: ");
+  scanf("%d", &codigo);
+  if(codigo < 0 || codigo > 1000000){ return; }
 
   if (!verificaCodigo(item, codigo, posicao_item)){
     printf("Erro na exclusao. Item nao cadastrado!\n");
@@ -673,11 +668,11 @@ void devolucao(Usuario usuario[], Emprestimo emprestimo[], int qtd_usuarios,  in
     if(confere_emprestimo(emprestimo,qtd_emprestimos, cpf)){
         devolvido = emprestimo_devolvido(emprestimo, qtd_emprestimos, cpf);
     }else{
-        printf("\nUsuario nao tem emprestimo!\n", cpf);
+        printf("\nUsuario nao tem emprestimo!\n");
         return;
       }
   }else {
-    printf("\nUsuario nao cadastrado!\n", cpf);
+    printf("\nUsuario nao cadastrado!\n");
     return;
   }
   //pegando a data da devolucao e conferindo se e valida dentro de um ano e dentro da data de emprestimo.
