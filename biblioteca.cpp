@@ -425,7 +425,7 @@ void Cadastrar_Itens(ItensBiblioteca item[], int &qtd_Itens) {
   }
 
 void Excluir_Item(Emprestimo emprestimo[], int qtd_emprestimos,ItensBiblioteca item[], int &posicao_item){
-  int codigo = 0, tentativas = 1;
+  int codigo = 0;
   puts("Codigo: ");
   scanf("%d", &codigo);
   if(codigo < 0 || codigo > 1000000){ return; }
@@ -654,7 +654,6 @@ void devolucao(Usuario usuario[], Emprestimo emprestimo[], int qtd_usuarios,  in
     return;
   }
 
-  //Conferindo se o usuario e cadastrado e se tem emprestimo, retornando mensagens de erro se necessario como o layout define
   printf("CPF: ");
   scanf("%lld", &cpf);
   getchar();
@@ -670,13 +669,11 @@ void devolucao(Usuario usuario[], Emprestimo emprestimo[], int qtd_usuarios,  in
     printf("\nUsuario nao cadastrado!\n");
     return;
   }
-  //pegando a data da devolucao e conferindo se e valida dentro de um ano e dentro da data de emprestimo.
+  
   do{
     data_errada= data_da_devolucao(dia_devolucao, mes_devolucao, ano_devolucao, devolvido);
     if(data_errada) puts("Data de devolucao invalida. Digite uma data valida!");
   }while(data_errada);
-
-  //printando devolucao e conferindo se ha multa e seu preco
 
   bool prazo;
   if(ano_devolucao < devolvido.ano_devolucao)prazo=true;
@@ -744,6 +741,7 @@ Emprestimo printa_emprestimo (Emprestimo  emprestimo[], int qtd_emprestimos, lon
   for (int i = 0; i < qtd_emprestimos; i++){
     if (emprestimo[i].cpf == cpf) return emprestimo[i];
   }
+  return;
 }
 
 void imprime_usuario(Usuario usuario[], int qtd_usuarios, Emprestimo emprestimo[], int qtd_emprestimos){
