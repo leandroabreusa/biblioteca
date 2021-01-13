@@ -929,6 +929,7 @@ void CadastroDeUsuario(Usuario usuario[], int &qtd_usuarios,
                 break;
             case 5:
                 finaliza = true;
+                break;
         }
     }
     putchar('\n');
@@ -973,6 +974,7 @@ void menuCadastroItens(ItensBiblioteca item[], int &qtd_Itens,
             break;
         case 5:
             finaliza = true;
+            break;
         }
     }
     putchar('\n');
@@ -1054,6 +1056,7 @@ int main(){
             break;
         case 4:
             finaliza = true;
+            break;
         }
     }
 }
