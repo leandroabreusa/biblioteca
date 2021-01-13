@@ -656,8 +656,7 @@ bool data_da_devolucao(int &dia_devolucao,int &mes_devolucao,int &ano_devolucao,
 void devolucao(Usuario usuario[], Emprestimo emprestimo[], int qtd_usuarios,  int &qtd_emprestimos){
   Emprestimo devolvido;
   long long int cpf;
-  int dia_devolucao, mes_devolucao, ano_devolucao;
-  dia_devolucao = mes_devolucao = ano_devolucao = 0;
+  int dia_devolucao = 0, mes_devolucao = 0, ano_devolucao = 0;
   bool data_errada;
 
     if(qtd_emprestimos==0){
@@ -674,11 +673,11 @@ void devolucao(Usuario usuario[], Emprestimo emprestimo[], int qtd_usuarios,  in
     if(confere_emprestimo(emprestimo,qtd_emprestimos, cpf)){
         devolvido = emprestimo_devolvido(emprestimo, qtd_emprestimos, cpf);
     }else{
-        printf("CPF: %lld\n\n Usuario nao tem emprestimo!\n", cpf);
+        printf("\nUsuario nao tem emprestimo!\n", cpf);
         return;
       }
   }else {
-    printf("CPF: %lld\n\n Usuario nao cadastrado!\n", cpf);
+    printf("\nUsuario nao cadastrado!\n", cpf);
     return;
   }
   //pegando a data da devolucao e conferindo se e valida dentro de um ano e dentro da data de emprestimo.
