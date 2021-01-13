@@ -431,7 +431,7 @@ void Cadastrar_Itens(ItensBiblioteca item[], int &qtd_Itens) {
   }
 
 void Excluir_Item(Emprestimo emprestimo[], int qtd_emprestimos,ItensBiblioteca item[], int &posicao_item){
-  int codigo = 0, tentativas = 1;
+  int codigo = 0;
   puts("Codigo: ");
   scanf("%d", &codigo);
   if(codigo < 0 || codigo > 1000000){ return; }
@@ -750,6 +750,7 @@ Emprestimo printa_emprestimo (Emprestimo  emprestimo[], int qtd_emprestimos, lon
   for (int i = 0; i < qtd_emprestimos; i++){
     if (emprestimo[i].cpf == cpf) return emprestimo[i];
   }
+    return;
 }
 
 void imprime_usuario(Usuario usuario[], int qtd_usuarios, Emprestimo emprestimo[], int qtd_emprestimos){
