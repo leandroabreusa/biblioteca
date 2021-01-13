@@ -405,7 +405,7 @@ void Cadastro_Codigo_Itens_Biblioteca(ItensBiblioteca inclusao[], int posicao_it
     conversaoCaixaAlta(inclusao.editora);
     conversaoCaixaAlta(inclusao.autor);
 
-    puts("\nCadastro realizado com sucesso!");
+    
   }
 
 void Cadastrar_Itens(ItensBiblioteca item[], int &qtd_Itens) {
@@ -425,6 +425,7 @@ void Cadastrar_Itens(ItensBiblioteca item[], int &qtd_Itens) {
     else{
       Cadastro_Itens_Biblioteca(item[qtd_Itens]);
       qtd_Itens+=1;
+      puts("\nCadastro realizado com sucesso!");
     }
     return;
   }
