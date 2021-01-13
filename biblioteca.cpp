@@ -289,33 +289,27 @@ void exclui_usuario(Usuario usuario[], int &qtd_usuarios,
         printf("CPF: ");
         scanf("%lld", &cpf);
 
-        if (testa_cpf(cpf))
+        int posicao_cpf;
+        int posicao_emprestimo_cpf;
+
+        posicao_cpf = busca_cpf(usuario, qtd_usuarios, cpf);
+        posicao_emprestimo_cpf = busca_cpf_emprestimo(emprestimo, qtd_emprestimos, cpf);
+
+        if (posicao_cpf != -1)
         {
-            int posicao_cpf;
-            int posicao_emprestimo_cpf;
-
-            posicao_cpf = busca_cpf(usuario, qtd_usuarios, cpf);
-            posicao_emprestimo_cpf = busca_cpf_emprestimo(emprestimo, qtd_emprestimos, cpf);
-
-            if (posicao_cpf != -1)
+            if (posicao_emprestimo_cpf == -1)
             {
-                if (posicao_emprestimo_cpf == -1)
-                {
-                    qtd_usuarios--;
+                qtd_usuarios--;
 
-                    usuario[posicao_cpf] = usuario[qtd_usuarios];
+                usuario[posicao_cpf] = usuario[qtd_usuarios];
 
-                    puts("\nExclusao realizada com sucesso!");
-                }
-                else
-                    puts("\nErro na exclusao. Usuario possui um emprestimo!");
+                puts("\nExclusao realizada com sucesso!");
             }
             else
-                puts("\nErro na exclusao. Usuario nao cadastrado!");
-
+                puts("\nErro na exclusao. Usuario possui um emprestimo!");
         }
         else
-            puts("\nErro na exclusao. Tamanho do CPF invalido!");
+            puts("\nErro na exclusao. Usuario nao cadastrado!");
     }
     else
         puts("\nErro na exclusao. Nao existem usuarios cadastrados!");
@@ -431,7 +425,7 @@ void Cadastrar_Itens(ItensBiblioteca item[], int &qtd_Itens) {
   }
 
 void Excluir_Item(Emprestimo emprestimo[], int qtd_emprestimos,ItensBiblioteca item[], int &posicao_item){
-  int codigo = 0;
+  int codigo = 0, tentativas = 1;
   puts("Codigo: ");
   scanf("%d", &codigo);
   if(codigo < 0 || codigo > 1000000){ return; }
@@ -750,7 +744,6 @@ Emprestimo printa_emprestimo (Emprestimo  emprestimo[], int qtd_emprestimos, lon
   for (int i = 0; i < qtd_emprestimos; i++){
     if (emprestimo[i].cpf == cpf) return emprestimo[i];
   }
-    return;
 }
 
 void imprime_usuario(Usuario usuario[], int qtd_usuarios, Emprestimo emprestimo[], int qtd_emprestimos){
