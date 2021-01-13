@@ -629,14 +629,8 @@ Emprestimo emprestimo_devolvido (Emprestimo  emprestimo[], int &qtd_emprestimos,
 }
 
 bool data_da_devolucao(int &dia_devolucao,int &mes_devolucao,int &ano_devolucao, Emprestimo teste){
-  printf("dia: ");
-  scanf("%d", &dia_devolucao);
-  getchar();
-  printf("do mes: ");
-  scanf("%d", &mes_devolucao);
-  getchar();
-  printf("do ano: ");
-  scanf("%d", &ano_devolucao);
+  printf("Data da devolucao: ");
+  scanf("%d/%d/%d", &dia_devolucao, &mes_devolucao, &ano_devolucao);
   getchar();
 
   if(eh_bissexto(ano_devolucao) && mes_devolucao==2){
@@ -687,10 +681,9 @@ void devolucao(Usuario usuario[], Emprestimo emprestimo[], int qtd_usuarios,  in
     return;
   }
   //pegando a data da devolucao e conferindo se e valida dentro de um ano e dentro da data de emprestimo.
-  puts("digite a data da devolucao:");
   do{
     data_errada= data_da_devolucao(dia_devolucao, mes_devolucao, ano_devolucao, devolvido);
-    if(data_errada) puts("Data de devolucao invalida. digite uma data valida");
+    if(data_errada) puts("Data de devolucao invalida. Digite uma data valida!");
   }while(data_errada);
 
   //printando devolucao e conferindo se ha multa e seu preco
@@ -703,14 +696,11 @@ void devolucao(Usuario usuario[], Emprestimo emprestimo[], int qtd_usuarios,  in
     prazo=true;
   } else prazo=false;
 
-
-  printf("\n\nCPF: %lld\n", devolvido.cpf);
-  printf("Data da devolucao: %02d/%02d/%02d\n\n",dia_devolucao, mes_devolucao, ano_devolucao );
-  printf("Nome: %s\n",devolvido.nome);
+  printf("\nNome: %s\n",devolvido.nome);
   printf("Titulo: %s\n",devolvido.titulo);
 
   if(prazo){
-    printf("Devolucao realizada com sucesso no prazo!\n");
+    printf("\nDevolucao realizada com sucesso no prazo!\n");
     return;
   }
 
@@ -756,7 +746,7 @@ void devolucao(Usuario usuario[], Emprestimo emprestimo[], int qtd_usuarios,  in
 
   float multa = contagem_da_multa*1.5;
 
-  printf("Devolucao realizada com atraso de: %d dias\n",contagem_da_multa);
+  printf("Devolucao realizada com atraso de %d dias\n",contagem_da_multa);
   printf("Multa de R$ %.2f\n", multa);
 }
 
