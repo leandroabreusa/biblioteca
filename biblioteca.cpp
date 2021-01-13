@@ -1011,6 +1011,7 @@ void menuEmprestimoDevolucao(Usuario usuario[], int qtd_usuarios,
             break;
         case 4:
             finaliza = true;
+            break;
         }
     }
     putchar('\n');
