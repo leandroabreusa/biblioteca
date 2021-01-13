@@ -741,7 +741,6 @@ Emprestimo printa_emprestimo (Emprestimo  emprestimo[], int qtd_emprestimos, lon
   for (int i = 0; i < qtd_emprestimos; i++){
     if (emprestimo[i].cpf == cpf) return emprestimo[i];
   }
-  return;
 }
 
 void imprime_usuario(Usuario usuario[], int qtd_usuarios, Emprestimo emprestimo[], int qtd_emprestimos){
