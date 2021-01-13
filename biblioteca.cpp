@@ -657,6 +657,7 @@ void devolucao(Usuario usuario[], Emprestimo emprestimo[], int qtd_usuarios,  in
   Emprestimo devolvido;
   long long int cpf;
   int dia_devolucao, mes_devolucao, ano_devolucao;
+  dia_devolucao = mes_devolucao = ano_devolucao = 0;
   bool data_errada;
 
     if(qtd_emprestimos==0){
