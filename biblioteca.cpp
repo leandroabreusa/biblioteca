@@ -419,7 +419,7 @@ void Cadastrar_Itens(ItensBiblioteca item[], int &qtd_Itens) {
     Cadastro_Codigo_Itens_Biblioteca(item, qtd_Itens, key);
 
     if (key==true){
-      printf("Codigo: %d\nErro no cadastro. Item ja cadastrado\n", item[qtd_Itens].codigo);
+      printf("Erro no cadastro. Item ja cadastrado\n");
       return;
     }
     else{
