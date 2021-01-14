@@ -428,7 +428,6 @@ void Excluir_Item(Emprestimo emprestimo[], int qtd_emprestimos,ItensBiblioteca i
   int codigo = 0;
   puts("Codigo: ");
   scanf("%d", &codigo);
-  if(codigo < 0 || codigo > 1000000){ return; }
 
   if (!verificaCodigo(item, codigo, posicao_item)){
     printf("Erro na exclusao. Item nao cadastrado!\n");
