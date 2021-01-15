@@ -342,7 +342,7 @@ void Cadastro_Codigo_Itens_Biblioteca(ItensBiblioteca inclusao[], int posicao_it
       }
   }
 
-  void Cadastro_Itens_Biblioteca(ItensBiblioteca &inclusao) {
+void Cadastro_Itens_Biblioteca(ItensBiblioteca &inclusao) {
    char trash[1000];
     printf("Tipo: ");
     do{
@@ -401,13 +401,13 @@ void Cadastro_Codigo_Itens_Biblioteca(ItensBiblioteca inclusao[], int posicao_it
     conversaoCaixaAlta(inclusao.autor);
 
 
-  }
+}
 
 void Cadastrar_Itens(ItensBiblioteca item[], int &qtd_Itens) {
     bool key;
     item[qtd_Itens].codigo=-1;
-    if(qtd_Itens==MAX_USUARIOS_ITENS-1){
-      puts("Erro no cadastro. Ja foi atingido o limite de 50 usuarios!");
+    if(qtd_Itens==MAX_USUARIOS_ITENS){
+      puts("\nErro no cadastro. Ja foi atingido o limite de 50 itens!");
       return;
     }
 
