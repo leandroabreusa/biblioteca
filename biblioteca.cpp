@@ -222,11 +222,10 @@ bool existeCPF(Usuario usuarios[], long long cpf, int length){
     return false;
 }
 
-bool testa_tamanho_string (int n, int k,
-                           Usuario usuario[], int qtd_usuarios)
+bool testa_tamanho_string (int n, int k, char nome[])
 {
-    if (strlen(usuario[qtd_usuarios].nome) < n ||
-        strlen(usuario[qtd_usuarios].nome) > k)
+    if (strlen(nome) < n ||
+        strlen(nome) > k)
             return false;
 
     return true;
@@ -243,6 +242,8 @@ bool testa_cpf(long long cpf)
 void inclusao_usuarios (Usuario usuario[], int &qtd_usuarios)
 {
     long long CPF;
+    char nome[TAM_NOME];
+
     if (qtd_usuarios < MAX_USUARIOS_ITENS)
     {
         printf("CPF: ");
@@ -256,27 +257,27 @@ void inclusao_usuarios (Usuario usuario[], int &qtd_usuarios)
                 return;
             }
 
-            usuario[qtd_usuarios].cpf = CPF;
-
             printf("Nome: ");
-            gets(usuario[qtd_usuarios].nome);
+            gets(nome);
 
-            conversaoCaixaAlta(usuario[qtd_usuarios].nome);
+            conversaoCaixaAlta(nome);
 
-            if (testa_tamanho_string(MIN_NOME, MAX_NOME,
-                                     usuario, qtd_usuarios))
+            if (testa_tamanho_string(MIN_NOME, MAX_NOME, nome))
             {
+                usuario[qtd_usuarios].cpf = CPF;
+                strcpy(usuario[qtd_usuarios].nome, nome);
+
                 puts("\nCadastro realizado com sucesso!");
                 qtd_usuarios++;
             }
             else
-                puts("\nErro no cadastro. Tamanho do nome invalido!");
+                puts("\nErro no cadastro. Nome deve ter entre 4 e 30 caracteres!");
         }
         else
-            puts("Erro no cadastro. Tamanho do CPF invalido!");
+            puts("\nErro no cadastro. CPF deve ter 11 digitos!");
         }
     else
-        puts("Erro no cadastro. Ja foi atingido o limite de 50 usuarios!");
+        puts("\nErro no cadastro. Ja foi atingido o limite de 50 usuarios!");
 }
 
 void exclui_usuario(Usuario usuario[], int &qtd_usuarios,
@@ -399,7 +400,7 @@ void Cadastro_Codigo_Itens_Biblioteca(ItensBiblioteca inclusao[], int posicao_it
     conversaoCaixaAlta(inclusao.editora);
     conversaoCaixaAlta(inclusao.autor);
 
-    
+
   }
 
 void Cadastrar_Itens(ItensBiblioteca item[], int &qtd_Itens) {
@@ -668,7 +669,7 @@ void devolucao(Usuario usuario[], Emprestimo emprestimo[], int qtd_usuarios,  in
     printf("\nUsuario nao cadastrado!\n");
     return;
   }
-  
+
   do{
     data_errada= data_da_devolucao(dia_devolucao, mes_devolucao, ano_devolucao, devolvido);
     if(data_errada) puts("Data de devolucao invalida. Digite uma data valida!");
@@ -690,7 +691,7 @@ void devolucao(Usuario usuario[], Emprestimo emprestimo[], int qtd_usuarios,  in
     return;
   }
 
-  printf("Data da devolucao: %02d/%02d/%02d\n\n",devolvido.dia_devolucao, devolvido.mes_devolucao, devolvido.ano_devolucao );
+  printf("Data da devolucao: %02d/%02d/%d\n\n",devolvido.dia_devolucao, devolvido.mes_devolucao, devolvido.ano_devolucao );
 
 
   int multa_por_ano,multa_por_mes=0,multa_por_dia, ano_bissexto=0;
@@ -778,7 +779,7 @@ void imprime_usuario(Usuario usuario[], int qtd_usuarios, Emprestimo emprestimo[
     if(confere_emprestimo(emprestimo, qtd_emprestimos, usuario[i].cpf)){
       print_emprestimo= printa_emprestimo(emprestimo, qtd_emprestimos, usuario[i].cpf);
 
-      printf("%-11s Emprestimo: %02d/%02d/02%d a %02d/%02d/%02d\n",vazio, print_emprestimo.dia_emprestimo, print_emprestimo.mes_emprestimo, print_emprestimo.ano_emprestimo, print_emprestimo.dia_devolucao, print_emprestimo.mes_devolucao, print_emprestimo.ano_devolucao);
+      printf("%-11s Emprestimo: %02d/%02d/%d a %02d/%02d/%d\n",vazio, print_emprestimo.dia_emprestimo, print_emprestimo.mes_emprestimo, print_emprestimo.ano_emprestimo, print_emprestimo.dia_devolucao, print_emprestimo.mes_devolucao, print_emprestimo.ano_devolucao);
 
       printf("%-11s Tipo: ",vazio);
       if(print_emprestimo.tipo=='L') puts("Livro");
