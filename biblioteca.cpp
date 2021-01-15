@@ -253,7 +253,7 @@ void inclusao_usuarios (Usuario usuario[], int &qtd_usuarios)
 
         if (testa_cpf(CPF)){
             if (existeCPF(usuario, CPF, qtd_usuarios)){
-                puts("Erro no cadastro. CPF ja cadastrado!");
+                puts("\nErro no cadastro. CPF ja cadastrado!");
                 return;
             }
 
@@ -414,7 +414,7 @@ void Cadastrar_Itens(ItensBiblioteca item[], int &qtd_Itens) {
     Cadastro_Codigo_Itens_Biblioteca(item, qtd_Itens, key);
 
     if (key==true){
-      printf("Erro no cadastro. Item ja cadastrado!\n");
+      printf("\nErro no cadastro. Item ja cadastrado!\n");
       return;
     }
     else{
@@ -427,16 +427,16 @@ void Cadastrar_Itens(ItensBiblioteca item[], int &qtd_Itens) {
 
 void Excluir_Item(Emprestimo emprestimo[], int qtd_emprestimos,ItensBiblioteca item[], int &posicao_item){
   int codigo = 0;
-  puts("Codigo: ");
+  printf("Codigo: ");
   scanf("%d", &codigo);
 
   if (!verificaCodigo(item, codigo, posicao_item)){
-    printf("Erro na exclusao. Item nao cadastrado!\n");
+    printf("\nErro na exclusao. Item nao cadastrado!\n");
     return;
   }
   else {
     if (existe_emprestimo(emprestimo, qtd_emprestimos, codigo)){
-      printf("Erro na exclusao. Item esta emprestado!\n");
+      printf("\nErro na exclusao. Item esta emprestado!\n");
       return;
     }
     else {
@@ -455,7 +455,7 @@ void Excluir_Item(Emprestimo emprestimo[], int qtd_emprestimos,ItensBiblioteca i
         }
       }
 
-      printf("Exclusao realizada com sucesso!\n");
+      printf("\nExclusao realizada com sucesso!\n");
       posicao_item-=1;
       return;
     }
